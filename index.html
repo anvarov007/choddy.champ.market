@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenMarket — Oziq-ovqat Do'koni</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <!-- Yuqori qism (Header) -->
+    <header>
+        <div class="logo">
+            <h1>🍏 GreenMarket</h1>
+        </div>
+        <button class="cart-toggle-btn" onclick="toggleCartModal(true)">
+            🛒 Savat (<span id="cart-count">0</span>)
+        </button>
+    </header>
+
+    <div class="main-container">
+        <!-- Mahsulotlar katalogi -->
+        <main class="catalog-section">
+
+            <!-- Mevalar va Sabzavotlar -->
+            <h2 class="category-title">Mevalar va Sabzavotlar</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">🍎</div>
+                    <div class="product-name">Olma (1 kg)</div>
+                    <div class="product-price">12 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('1', 'Olma', 12000)">Savatga qo'shish</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🍌</div>
+                    <div class="product-name">Banan (1 kg)</div>
+                    <div class="product-price">22 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('2', 'Banan', 22000)">Savatga qo'shish</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🍉</div>
+                    <div class="product-name">Tarvuz (1 dona)</div>
+                    <div class="product-price">25 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('3', 'Tarvuz', 25000)">Savatga qo'shish</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🥔</div>
+                    <div class="product-name">Kartoshka (1 kg)</div>
+                    <div class="product-price">5 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('4', 'Kartoshka', 5000)">Savatga qo'shish</button>
+                </div>
+            </div>
+
+            <!-- Sut va Sut mahsulotlari -->
+            <h2 class="category-title">Sut va Sut mahsulotlari</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">🥛</div>
+                    <div class="product-name">Sut (1 litr)</div>
+                    <div class="product-price">9 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('5', 'Sut', 9000)">Savatga qo'shish</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🧀</div>
+                    <div class="product-name">Pishloq (500g)</div>
+                    <div class="product-price">45 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('6', 'Pishloq', 45000)">Savatga qo'shish</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🍦</div>
+                    <div class="product-name">Qaymoq (200g)</div>
+                    <div class="product-price">14 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('7', 'Qaymoq', 14000)">Savatga qo'shish</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🧈</div>
+                    <div class="product-name">Sariyog' (200g)</div>
+                    <div class="product-price">18 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('8', 'Sariyog\'', 18000)">Savatga qo'shish</button>
+                </div>
+            </div>
+
+            <!-- Non va Baqqollik -->
+            <h2 class="category-title">Non va Baqqollik</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">🍞</div>
+                    <div class="product-name">Issiq Non</div>
+                    <div class="product-price">4 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('9', 'Issiq Non', 4000)">Savatga qo'shish</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🥚</div>
+                    <div class="product-name">Tuxum (10 dona)</div>
+                    <div class="product-price">15 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('10', 'Tuxum', 15000)">Savatga qo'shish</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🍝</div>
+                    <div class="product-name">Makaron (1 kg)</div>
+                    <div class="product-price">11 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('11', 'Makaron', 11000)">Savatga qo'shish</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🍚</div>
+                    <div class="product-name">Guruch (1 kg)</div>
+                    <div class="product-price">19 000 so'm</div>
+                    <button class="add-btn" onclick="addToCart('12', 'Guruch', 19000)">Savatga qo'shish</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- SAVAT MODAL OYNASI -->
+    <div class="cart-backdrop" id="cart-backdrop">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h2>🛒 Xarid Savatingiz</h2>
+                <button class="close-modal-btn" onclick="toggleCartModal(false)">❌</button>
+            </div>
+
+            <!-- Savat ichidagi ro'yxat -->
+            <ul class="cart-items-list" id="cart-items-list">
+                <p id="empty-cart-msg">Savatingiz hozircha bo'sh</p>
+            </ul>
+
+            <!-- Buyurtma formasi va To'lov -->
+            <div class="cart-footer" id="cart-footer-form">
+
+                <!-- DOSTAVKA FORMASI -->
+                <div class="delivery-form">
+                    <h3>Yetkazib berish ma'lumotlari:</h3>
+                    <input type="text" id="customer-name" placeholder="Ismingizni kiriting" required>
+                    <input type="tel" id="customer-phone" placeholder="Telefon raqamingiz (+998...)" required>
+                    <textarea id="customer-address" placeholder="To'liq manzilingizni kiriting (Kocha, uy, kvartira)"
+                        rows="2" required></textarea>
+                </div>
+
+                <!-- TO'LOV TURINI TANLASH -->
+                <div class="payment-method-section">
+                    <h3>To'lov turini tanlang:</h3>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="payment-method" value="Naqd" checked> 💵 Naqd pul
+                        </label>
+                        <label>
+                            <input type="radio" name="payment-method" value="Plastik Karta"> 💳 Plastik Karta
+                            (Uzcard/Humo)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="total-row">
+                    <span>Umumiy summa:</span>
+                    <strong><span id="total-price">0</span> so'm</strong>
+                </div>
+
+                <button class="checkout-btn" onclick="checkout()">Buyurtmani tasdiqlash</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
